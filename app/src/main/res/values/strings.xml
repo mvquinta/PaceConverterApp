@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PaceConverterApp</string>
+    <string name="hello_github">Hello GitHub!</string>
+    <string name="button_temp">Button</string>
 </resources>
