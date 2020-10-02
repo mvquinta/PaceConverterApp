@@ -16,10 +16,16 @@ class MainActivity : AppCompatActivity() {
 
         //binding.btnCalculatePace.setOnClickListener { (findPace()) }
         binding.btnCalculatePace.setOnClickListener {
-            if (binding.editTxtDistance.text.toString().trim().isNotEmpty() || binding.editTxtDistance.text.toString().trim().isNotBlank()) {
-                (findPace())
+            if (binding.editTxtDistance.text.toString().trim().isEmpty() || binding.editTxtDistance.text.toString().trim().isBlank()) {
+                Toast.makeText(this, "Please insert distance", Toast.LENGTH_SHORT).show()
+            } else if (binding.editTxtHours.text.toString().trim().isEmpty() || binding.editTxtHours.text.toString().trim().isBlank()) {
+                Toast.makeText(this, "Please insert Hours", Toast.LENGTH_SHORT).show()
+            } else if (binding.editTxtMinutes.text.toString().trim().isEmpty() || binding.editTxtMinutes.text.toString().trim().isBlank()) {
+                Toast.makeText(this, "Please insert Minutes", Toast.LENGTH_SHORT).show()
+            } else if (binding.editTxtSeconds.text.toString().trim().isEmpty() || binding.editTxtSeconds.text.toString().trim().isBlank()) {
+                Toast.makeText(this, "Please insert Seconds", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_LONG).show()
+                findPace()
             }
         }
     }
@@ -45,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         //finally I convert the result into string to final print
         val finalPace = (tempPace.toInt().toDouble() + (restTempPace*0.6)).toString()
         //since I was having difficulty in printing my result because decimals were being round up. I went for a string solution. Not so elegant....
-        //println("Your pace was: ${finalPace[0]}${finalPace[1]}${finalPace[2]}${finalPace[3]} min/km")
         binding.txtPaceResult.text = ("Your Pace: ${finalPace[0]}${finalPace[1]}${finalPace[2]}${finalPace[3]} min/km")
     }
 }
