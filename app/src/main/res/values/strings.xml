@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">PaceConverterApp</string>
-    <string name="hello_github">Hello GitHub!</string>
-    <string name="button_temp">Button</string>
+    <string name="str_pace_converter_title">Pace Converter App</string>
+    <string name="str_distance_title">Distance</string>
+    <string name="str_two_points_separator">:</string>
+    <string name="str_time">Time</string>
+    <string name="str_calculate">Calculate</string>
+    <string name="your_pace_is">Your pace is:</string>
 </resources>
