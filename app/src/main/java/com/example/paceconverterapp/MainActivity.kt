@@ -1,6 +1,8 @@
 package com.example.paceconverterapp
 
+import android.content.Context
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.paceconverterapp.databinding.ActivityMainBinding
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //Function that calculates and finds pace
     fun findPace() {
         //get user input information into variables
         val fieldKmDist = binding.editTxtDistance.text.toString()
@@ -52,5 +55,16 @@ class MainActivity : AppCompatActivity() {
         val finalPace = (tempPace.toInt().toDouble() + (restTempPace*0.6)).toString()
         //since I was having difficulty in printing my result because decimals were being round up. I went for a string solution. Not so elegant....
         binding.txtPaceResult.text = ("Your Pace: ${finalPace[0]}${finalPace[1]}${finalPace[2]}${finalPace[3]} min/km")
+        closeKeyBoard()
     }
+
+    //Function to close keyboard once it's used. This function can be used in every other function just by declaring it
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
+
 }
